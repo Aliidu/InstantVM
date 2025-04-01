@@ -1,11 +1,9 @@
 # InstantVM
 Deploy Windows 10 &amp; Ubuntu 22.04 VMs with Vagrant, preconfigured for easy use
 
-This project provides an easy way to deploy Windows 10 and Ubuntu Server 22.04 virtual machines using Vagrant and VirtualBox.
+This project provides an easy way to deploy Windows 10 and Ubuntu Server 22.04 virtual machines using Vagrant and VirtualBox. Each VM is automatically configured with essential settings for a fast deployment.
 
-Each VM is automatically configured with essential settings for a fast deployment.
-
-🌟 Features : 
+🌟 Features
 
     Dynamic creation of Windows 10 and/or Ubuntu 22.04 VMs
 
@@ -17,33 +15,33 @@ Each VM is automatically configured with essential settings for a fast deploymen
 
     Communication via WinRM (Windows) and SSH (Ubuntu)
 
-🛠️ Usage : 
+🛠️ Usage
+1. Install prerequisites:
 
-    Install prerequisites:
+    Vagrant
 
-        Vagrant
+    VirtualBox
 
-        VirtualBox
+2. Start the VMs:
 
-    Start the VMs:
-    Run vagrant up and then specify your choice:
+Run vagrant up and then specify your choice:
 
-        All VMs: type all
+    All VMs: type all
 
-        Windows 10: type windows
+    Windows 10: type windows
 
-        Ubuntu: type ubuntu
+    Ubuntu: type ubuntu
 
-    Access the VM:
+3. Access the VM:
 
-        Windows: vagrant rdp win10-<timestamp>
+    Windows: vagrant rdp win10-<timestamp>
 
-        Ubuntu: vagrant ssh ubuntu-vm
+    Ubuntu: vagrant ssh ubuntu-vm
 
-💡 TO-DO List :  
+💡 TO-DO List
 
     Add the option to choose between VMware Workstation and VirtualBox for virtualization.
 
-📄 License : 
+📄 License
 
 Open-source project, free to use and modify. ✨
