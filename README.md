@@ -3,6 +3,8 @@ Deploy Windows 10 &amp; Ubuntu 22.04 VMs with Vagrant, preconfigured for easy us
 
 This project provides an easy way to deploy Windows 10 and Ubuntu Server 22.04 virtual machines using Vagrant and VirtualBox. Each VM is automatically configured with essential settings for a fast deployment.
 
+This Vagrantfile allows you to generate VMs based on the same model, but with unique names derived from the timestamp, guaranteeing the creation of new instances with each deployment.
+
 🌟 Features
 
     Dynamic creation of Windows 10 and/or Ubuntu 22.04 VMs
