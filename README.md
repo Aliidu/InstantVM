@@ -1,5 +1,5 @@
 # InstantVM
-Windows 10 &amp; Ubuntu 22.04 VMs with Vagrant, preconfigured for easy use
+Deploy Windows 10 &amp; Ubuntu 22.04 VMs with Vagrant, preconfigured for easy use
 
 This project provides an easy way to deploy Windows 10 and Ubuntu Server 22.04 virtual machines using Vagrant and VirtualBox.
 
