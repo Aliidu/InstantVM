@@ -11,7 +11,6 @@ Vagrant.configure("2") do |config|
     config.vm.define "win10-#{timestamp}" do |win|
       win.vm.box = "StefanScherer/windows_10"  # Template de VM Windows 10 - A modifier si nécessaire
       win.vm.hostname = "win10-#{timestamp}"
-      win.vm.boot_timeout = 300                 #Ajout d'un timeout pour éviter d'attendre le redémarrage en boucle
 
       # Configuration matérielle
       win.vm.provider "virtualbox" do |vb|
