@@ -11,7 +11,6 @@ Vagrant.configure("2") do |config|
     config.vm.define "win10-#{timestamp}" do |win|
       win.vm.box = "StefanScherer/windows_10"  # Template de VM Windows 10 - A modifier si nécessaire
       win.vm.hostname = "win10-#{timestamp}"
-      win.vm.boot_timeout = 300                 #Ajout d'un timeout pour éviter d'attendre le redémarrage en boucle
 
       # Configuration matérielle
       win.vm.provider "virtualbox" do |vb|
@@ -25,12 +24,18 @@ Vagrant.configure("2") do |config|
       win.vm.communicator = "winrm"   # Pour communiquer avec la VM pour la configurer
       win.winrm.username = "vagrant"
       win.winrm.password = "vagrant"
+      win.winrm.retry_limit = 20        # Nombre de tentatives avant abandon
+      win.winrm.retry_delay = 10        # Délai entre les tentatives (en secondes)
+      win.winrm.timeout = 600           # Délai maximal d'attente pour WinRM (10 minutes)
 
       # Exécution de commandes après le démarrage
       win.vm.provision "shell", inline: <<-SHELL
+        echo "Attente du réseau et du WinRM (30s)"
+        timeout /t 30
+
         echo "Configuration du clavier en AZERTY"
         powershell -Command "Set-WinUserLanguageList fr-FR -Force"
-      SHELL
+    SHELL
     end
   end
 
