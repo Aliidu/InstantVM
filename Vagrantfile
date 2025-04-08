@@ -24,12 +24,19 @@ Vagrant.configure("2") do |config|
       win.vm.communicator = "winrm"   # Pour communiquer avec la VM pour la configurer
       win.winrm.username = "vagrant"
       win.winrm.password = "vagrant"
+      win.winrm.retry_limit = 20        # Nombre de tentatives avant abandon
+      win.winrm.retry_delay = 10        # Délai entre les tentatives (en secondes)
+      win.winrm.timeout = 100           # Délai maximal d'attente pour WinRM sinon vagrant attend en boucle le reboot
 
       # Exécution de commandes après le démarrage
       win.vm.provision "shell", inline: <<-SHELL
+        echo "Attente du réseau et du WinRM (30s)"
+        timeout /t 10
+
         echo "Configuration du clavier en AZERTY"
         powershell -Command "Set-WinUserLanguageList fr-FR -Force"
-      SHELL
+        powershell -Command "Restart-Computer -Force"
+    SHELL
     end
   end
 
